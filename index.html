@@ -3,105 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Codexa Health | Revenue Intelligence</title>
+<title>Codexa Health</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
 body {
   font-family: 'Inter', sans-serif;
-  margin: 0;
-  background: #f8fafc;
-  color: #0f172a;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: #e2e8f0;
+  overflow-x: hidden;
 }
 
+/* NAV */
 header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display:flex;
+  justify-content:space-between;
+  padding:20px 50px;
+  position:sticky;
+  top:0;
+  backdrop-filter: blur(10px);
 }
 
-.logo {
-  font-weight: 600;
-  font-size: 20px;
-}
+.logo { font-weight:600; font-size:20px; }
 
 nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #334155;
+  margin-left:20px;
+  text-decoration:none;
+  color:#94a3b8;
 }
 
 .cta {
-  background: #2563eb;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 8px;
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+  padding:10px 16px;
+  border-radius:8px;
+  color:white;
 }
 
+/* HERO */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 80px 40px;
-}
-
-.hero-text {
-  max-width: 500px;
+  text-align:center;
+  padding:100px 20px;
+  animation: fadeIn 1s ease-in;
 }
 
 .hero h1 {
-  font-size: 42px;
+  font-size:52px;
+  background: linear-gradient(90deg,#38bdf8,#818cf8);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 .hero p {
-  color: #64748b;
+  margin-top:20px;
+  color:#94a3b8;
 }
 
 .hero button {
-  margin-top: 20px;
-  padding: 14px 20px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  margin-top:30px;
+  padding:14px 24px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(135deg,#3b82f6,#06b6d4);
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-.hero img {
-  width: 500px;
-  border-radius: 12px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+.hero button:hover {
+  transform:scale(1.05);
 }
 
+/* DASHBOARD MOCK */
+.dashboard {
+  margin:60px auto;
+  width:80%;
+  background:#020617;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.6);
+  animation: float 4s infinite ease-in-out;
+}
+
+.chart {
+  height:200px;
+  background:linear-gradient(90deg,#3b82f6,#06b6d4);
+  border-radius:10px;
+  margin-bottom:20px;
+}
+
+.stats {
+  display:flex;
+  justify-content:space-between;
+}
+
+.stat {
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:12px;
+  width:30%;
+}
+
+/* SECTIONS */
 .section {
-  padding: 60px 40px;
-  text-align: center;
+  padding:80px 40px;
+  text-align:center;
 }
 
 .cards {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:40px;
 }
 
 .card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  width: 250px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  background:rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:25px;
+  border-radius:16px;
+  width:260px;
+  transition:0.3s;
+  opacity:0;
+  transform:translateY(30px);
 }
 
+.card.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card:hover {
+  transform:translateY(-10px) scale(1.02);
+  border-color:#38bdf8;
+}
+
+/* FOOTER */
 .footer {
-  background: #0f172a;
-  color: white;
-  padding: 40px;
-  text-align: center;
+  padding:40px;
+  text-align:center;
+  color:#64748b;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+@keyframes float {
+  0% { transform:translateY(0);}
+  50% { transform:translateY(-10px);}
+  100% { transform:translateY(0);}
 }
 </style>
+
 </head>
 
 <body>
@@ -112,26 +172,33 @@ nav a {
     <a href="#">Services</a>
     <a href="#">Solutions</a>
     <a href="#">Compliance</a>
-    <a href="#">Contact</a>
     <a class="cta" href="#">Book Demo</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-text">
-    <h1>AI-Driven Revenue Cycle Intelligence</h1>
-    <p>Maximize reimbursement with ICD coding, HCC risk adjustment, CDI and billing automation.</p>
-    <button>Get Free Audit</button>
+  <h1>AI Revenue Intelligence for Healthcare</h1>
+  <p>Increase reimbursements with coding, HCC optimization, and CDI automation</p>
+  <button>Get Free Audit</button>
+
+  <!-- Dashboard -->
+  <div class="dashboard">
+    <div class="chart"></div>
+    <div class="stats">
+      <div class="stat">+32% Revenue</div>
+      <div class="stat">-25% Denials</div>
+      <div class="stat">99% Accuracy</div>
+    </div>
   </div>
-  <img src="https://via.placeholder.com/500x300" alt="dashboard">
+
 </section>
 
 <section class="section">
-  <h2>Problems We Solve</h2>
+  <h2>What We Solve</h2>
   <div class="cards">
     <div class="card">Denied Claims</div>
-    <div class="card">Missing HCC Revenue</div>
-    <div class="card">Poor Documentation</div>
+    <div class="card">Missed HCC Codes</div>
+    <div class="card">Documentation Gaps</div>
   </div>
 </section>
 
@@ -146,22 +213,31 @@ nav a {
 </section>
 
 <section class="section">
-  <h2>Why Choose Us</h2>
+  <h2>Why Codexa</h2>
   <div class="cards">
     <div class="card">HIPAA Ready</div>
     <div class="card">AI Assisted Coding</div>
-    <div class="card">99% Accuracy</div>
+    <div class="card">High Accuracy</div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Book a Free Revenue Audit</h2>
-  <button style="padding:15px 25px;background:#16a34a;color:white;border:none;border-radius:8px;">Schedule Demo</button>
-</section>
-
 <div class="footer">
-  © 2026 Codexa Health | All Rights Reserved
+  © 2026 Codexa Health
 </div>
+
+<script>
+// Scroll animation
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const position = card.getBoundingClientRect().top;
+    if(position < window.innerHeight - 50) {
+      card.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
